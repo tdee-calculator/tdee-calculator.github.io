@@ -3,168 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TDEE Calculator</title>
+    <title>Comprehensive TDEE Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
             padding: 20px;
         }
         .container {
-            background-color: #fff;
+            max-width: 960px;
+            margin: 20px auto;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, p {
+            text-align: center;
         }
         h1 {
-            text-align: center;
-            color: #009688;
+            margin-bottom: 0.5em;
+            color: #444;
+        }
+        p {
+            font-size: 1.1em;
+            color: #666;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
         }
         label {
-            display: block;
-            margin: 15px 0 5px;
+            font-weight: 500;
+            margin-bottom: 5px;
         }
-        input, select {
-            width: 100%;
+        input[type="number"],
+        select,
+        button {
             padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus,
+        select:focus,
+        button:focus {
+            border-color: #0056b3;
         }
         button {
-            width: 100%;
-            padding: 10px;
-            background-color: #009688;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
+            background-color: #0056b3;
+            color: white;
+            font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
-            background-color: #00796b;
+            background-color: #004494;
         }
-        .output {
+        .results {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 20px;
+            justify-content: center;
+        }
+        .result-box {
+            flex: 1 1 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
-            background-color: #e0f7fa;
-            border-radius: 8px;
+            background-color: #e3f2fd;
+            border: 1px solid #b6dfff;
+            border-radius: 5px;
         }
-        .output h2 {
-            color: #00796b;
+        .result-box p {
+            margin: 5px 0;
+            font-weight: bold;
+            color: #1976d2;
         }
-        canvas {
-            margin-top: 20px;
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            .results {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>TDEE Calculator</h1>
-        <label for="age">Age</label>
-        <input type="number" id="age" min="1" max="120" required>
-
-        <label for="gender">Gender</label>
-        <select id="gender" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
-
-        <label for="weight">Weight (kg)</label>
-        <input type="number" id="weight" min="1" required>
-
-        <label for="height">Height (cm)</label>
-        <input type="number" id="height" min="1" required>
-
-        <label for="activity">Activity Level</label>
-        <select id="activity" required>
-            <option value="1.2">Sedentary (little or no exercise)</option>
-            <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
-            <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
-            <option value="1.725">Very active (hard exercise/sports 6-7 days a week)</option>
-            <option value="1.9">Super active (very hard exercise/sports & physical job)</option>
-        </select>
-
-        <button onclick="calculateTDEE()">Calculate TDEE</button>
-
-        <div class="output" id="output">
-            <h2>Results</h2>
-            <p id="bmr"></p>
-            <p id="tdee"></p>
-            <canvas id="tdeeChart"></canvas>
+        <h1>Calculate Your Total Daily Energy Expenditure (TDEE)</h1>
+        <p>Enter your details to calculate your daily energy expenditure along with BMR, BMI, and other key metrics.</p>
+        <form id="tdee-form">
+            <!-- Form fields for various inputs -->
+            <div class="input-group">
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height" name="height" required>
+            </div>
+            <div class="input-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" name="weight" required>
+            </div>
+            <div class="input-group">
+                <label for="age">Age (years)</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="activity">Activity Level</label>
+                <select id="activity" name="activity">
+                    <option value="1.2">Sedentary: little or no exercise</option>
+                    <option value="1.375">Lightly active: light exercise/sports 1-3 days/week</option>
+                    <option value="1.55">Moderately active: moderate exercise/sports 3-5 days/week</option>
+                    <option value="1.725">Very active: hard exercise/sports 6-7 days a week</option>
+                    <option value="1.9">Super active: very hard exercise/sports & physical job or 2x training</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="goal">Fitness Goal</label>
+                <select id="goal" name="goal">
+                    <option value="maintain">Maintain Weight</option>
+                    <option value="loss">Weight Loss</option>
+                    <option value="gain">Weight Gain</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="bodyfat">Body Fat (%)</label>
+                <input type="number" id="bodyfat" name="bodyfat">
+            </div>
+            <div class="input-group" style="text-align: center;">
+                <button type="button" onclick="calculateTDEE()">Calculate TDEE</button>
+            </div>
+        </form>
+        <div class="results">
+            <!-- Results display here -->
+            <div class="result-box">
+                <p>BMR (Basal Metabolic Rate)</p>
+                <p id="bmr-result">0 kcal/day</p>
+            </div>
+            <div class="result-box">
+                <p>TDEE (Total Daily Energy Expenditure)</p>
+                <p id="tdee-result">0 kcal/day</p>
+            </div>
+            <div class="result-box">
+                <p>BMI (Body Mass Index)</p>
+                <p id="bmi-result">0</p>
+            </div>
+            <div class="result-box">
+                <p>LBM (Lean Body Mass)</p>
+                <p id="lbm-result">0 kg</p>
+            </div>
+            <div class="result-box">
+                <p>FBM (Fat Body Mass)</p>
+                <p id="fbm-result">0 kg</p>
+            </div>
+            
+            
+                    <h1>Calculate Your Total Daily Energy Expenditure (TDEE)</h1>
+        <p>Enter your details to calculate your daily energy expenditure along with BMR, BMI, and other key metrics.</p>
+        </div>
+        <!-- Additional Information -->
+        <div style="text-align: center; margin-top: 20px;">
+            <p>&copy; 2024 Comprehensive TDEE Calculator. All rights reserved.</p>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         function calculateTDEE() {
-            const age = document.getElementById('age').value;
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const age = parseInt(document.getElementById('age').value);
             const gender = document.getElementById('gender').value;
-            const weight = document.getElementById('weight').value;
-            const height = document.getElementById('height').value;
-            const activity = document.getElementById('activity').value;
-
-            if (!age || !gender || !weight || !height || !activity) {
-                alert('Please fill in all fields');
-                return;
-            }
+            const activity = parseFloat(document.getElementById('activity').value);
+            const goal = document.getElementById('goal').value;
+            const bodyfat = parseFloat(document.getElementById('bodyfat').value);
 
             let bmr;
-
             if (gender === 'male') {
-                bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+                bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
             } else {
-                bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+                bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
             }
 
             const tdee = bmr * activity;
+            const bmi = weight / ((height / 100) ** 2);
+            const lbm = weight - (weight * (bodyfat / 100));
+            const fbm = weight - lbm;
 
-            document.getElementById('bmr').innerText = `Basal Metabolic Rate (BMR): ${bmr.toFixed(2)} calories/day`;
-            document.getElementById('tdee').innerText = `Total Daily Energy Expenditure (TDEE): ${tdee.toFixed(2)} calories/day`;
-
-            displayChart(bmr, tdee);
-        }
-
-        function displayChart(bmr, tdee) {
-            const ctx = document.getElementById('tdeeChart').getContext('2d');
-            const data = {
-                labels: ['BMR', 'TDEE'],
-                datasets: [{
-                    label: 'Calories',
-                    data: [bmr, tdee],
-                    backgroundColor: ['#009688', '#00796b'],
-                    borderColor: ['#00796b', '#004d40'],
-                    borderWidth: 1
-                }]
-            };
-
-            if (window.myChart) {
-                window.myChart.destroy();
-            }
-
-            window.myChart = new Chart(ctx, {
-                type: 'bar',
-                data: data,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
+            document.getElementById('bmr-result').textContent = `${bmr.toFixed(2)} kcal/day`;
+            document.getElementById('tdee-result').textContent = `${tdee.toFixed(2)} kcal/day`;
+            document.getElementById('bmi-result').textContent = `${bmi.toFixed(2)}`;
+            document.getElementById('lbm-result').textContent = `${lbm.toFixed(2)} kg`;
+            document.getElementById('fbm-result').textContent = `${fbm.toFixed(2)} kg`;
         }
     </script>
-
-
-<hr>
-    <p>Ever wondered how many calories you need to maintain, lose, or gain weight? That's where the Total Daily Energy Expenditure (TDEE) calculator comes in handy. By inputting simple details like age, height, weight, and body fat percentage, you can get a precise estimate of your daily calorie requirements.</p>
 </body>
 </html>
