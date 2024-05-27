@@ -25,7 +25,7 @@
             background-color: #ffffff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        h1, p {
+        h1 {
             text-align: center;
         }
         h1 {
@@ -68,7 +68,7 @@
             color: white;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 28px!important;
         }
         button:hover {
             background-color: #004494;
@@ -104,6 +104,86 @@
                 flex-direction: column;
             }
         }
+
+        .content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.content p, .content h2, .content h3, .content ol {
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+.content h2, .content h3 {
+    color: #333;
+}
+
+.content ol {
+    padding-left: 20px;
+}
+
+.content li {
+    margin-bottom: 10px;
+}
+
+.content strong {
+    color: #0056b3;
+}
+
+
+.activity-levels ul {
+    list-style: none; /* Removes default list styling */
+    padding: 0;
+    margin-top: 20px;
+}
+
+.activity-levels li {
+    background-color: #f8f8f8; /* Light grey background for better readability */
+    border-left: 5px solid #0056b3; /* Blue border on the left for emphasis */
+    padding: 10px 15px; /* Padding for spacing inside the list items */
+    margin-bottom: 10px; /* Space between list items */
+    font-size: 16px; /* Slightly larger text for readability */
+}
+
+.activity-levels strong {
+    color: #333; /* Dark color for better emphasis */
+    font-weight: bold; /* Makes the activity level stand out */
+}
+
+.faq-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+}
+
+.faq-item h3 {
+    background-color: #e3f2fd;
+    padding: 10px;
+    border-radius: 4px;
+    color: #0056b3;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.faq-item p {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    display: none; /* initially hidden */
+}
+
+
+
     </style>
 </head>
 <body>
@@ -160,71 +240,254 @@
         <div class="results">
             <!-- Results display here -->
             <div class="result-box">
-                <p>BMR (Basal Metabolic Rate)</p>
+                <center> <p>BMR <br>(Basal Metabolic Rate)</p></center>
                 <p id="bmr-result">0 kcal/day</p>
             </div>
               <div class="result-box">
-                <p>FBM (Fat Body Mass)</p>
+                <center><p>FBM <br>(Fat Body Mass)</p></center>
                 <p id="fbm-result">0 kg</p>
             </div>
              
             <div class="result-box">
-                <p>BMI (Body Mass Index)</p>
+                <center><p>BMI <br>(Body Mass Index)</p></center>
                 <p id="bmi-result">0</p>
             </div>
             <div class="result-box">
-                <p>LBM (Lean Body Mass)</p>
+               <center> <p>LBM <br>(Lean Body Mass)</p></center>
                 <p id="lbm-result">0 kg</p>
             </div>
  
               <div class="result-box">
-                <p>TDEE (Total Daily Energy Expenditure)</p>
+                <center><p>TDEE <br>(Total Daily Energy Expenditure)</p></center>
                 <p id="tdee-result">0 kcal/day</p>
             </div>
             
             
-                    <h1>Calculate Your Total Daily Energy Expenditure (TDEE)</h1>
-        <p>Ever wondered how many calories you need to maintain, lose, or gain weight? That's where the Total Daily Energy Expenditure (TDEE) calculator comes in handy. By inputting simple details like age, height, weight, and body fat percentage, you can get a precise estimate of your daily calorie requirements.</p>
-        
-        <h2>How TDEE Calculators Work</h2>
+            
+                <div class="content">
+                    <p>Ever wondered how many calories you need to maintain, lose, or gain weight? That's where the Total Daily Energy Expenditure (TDEE) calculator comes in handy. By inputting simple details like age, height, weight, and body fat percentage, you can get a precise estimate of your daily calorie requirements.</p>
+                    
+                    <p>Using a TDEE calculator takes the guesswork out of managing your diet. Whether you're aiming to shed a few pounds or bulk up, knowing your TDEE helps you set clear, achievable goals. It’s never been easier to plan your meals and track your progress toward optimal health and fitness.</p>
+                    
+                    <h2>How TDEE Calculators Work</h2>
+                    <p>Total Daily Energy Expenditure (TDEE) calculators estimate the calories I burn daily based on various factors. These calculators help in setting realistic goals for weight management, ensuring precise calorie intake adjustments for optimal results.</p>
+                    
+                    <h3>Factors Influencing TDEE</h3>
+                    <p>Several factors influence TDEE, determining how much energy my body expends.</p>
+                    
+                    <ol>
+                        <li><strong>Basal Metabolic Rate (BMR)</strong>: This represents the energy I need at rest for essential bodily functions like breathing and maintaining body temperature.</li>
+                        <li><strong>Physical Activity Level</strong>: Any activity, from daily chores to intense workouts, impacts my overall calorie expenditure.</li>
+                        <li><strong>Thermic Effect of Food (TEF)</strong>: This is the energy used to digest, absorb, and metabolize the nutrients in what I eat.</li>
+                        <li><strong>Age, Gender, and Body Composition</strong>: These intrinsic factors play a crucial role in my metabolism and energy needs.</li>
+                        <li><strong>Health Conditions and Medications</strong>: Certain conditions and medications may alter my metabolism and thus my TDEE.</li>
+                    </ol>
+                    <h3>Common Formulas Used in TDEE Calculations</h3>
+  
+                    <p>Different formulas calculate BMR, which is then adjusted by my activity level to find TDEE.</p>
+                 
+                    <ol>
+                        
+                        <li>
+                            <strong>
+                                Mifflin-St Jeor Equation</strong>: Widely considered the most accurate, it calculates BMR using weight, height, age, and gender.
+                            </li>
+                        
+                
+                 
+                    <ul>
+                        
+                        <li><b>For men:</b> BMR = 88.362 + (13.397 × weight in kg) + (4.799 × height in cm) - (5.677 × age in years)</li>
+                        
+                        
+                        <li><b>For women:</b> BMR = 447.593 + (9.247 × weight in kg) + (3.098 × height in cm) - (4.330 × age in years)</li>
+                        
+                    </ul>
+                 
+                   
+                        
+                        <li><strong>Harris-Benedict Equation</strong>: Another method, slightly older but still used, also relies on weight, height, age, and gender.</li>
+                        
+                        
+                        <li><strong>Katch-McArdle Equation</strong>: Used when body fat percentage is known.</li>
+                        
+                    </ol>
 
-    <p>Total Daily Energy Expenditure (TDEE) calculators estimate the calories I burn daily based on various factors. These calculators help in setting realistic goals for weight management, ensuring precise calorie intake adjustments for optimal results.</p>
 
-    <h3>Factors Influencing TDEE</h3>
+                    <p>After calculating BMR, I apply an activity multiplier to estimate TDEE:</p>
+                    <div class="activity-levels">
+                        <ul>
+                            <li><strong>Sedentary (little to no exercise)</strong>: BMR × 1.2</li>
+                            <li><strong>Lightly active (light exercise/sports 1-3 days a week)</strong>: BMR × 1.375</li>
+                            <li><strong>Moderately active (moderate exercise/sports 3-5 days a week)</strong>: BMR × 1.55</li>
+                            <li><strong>Very active (hard exercise/sports 6-7 days a week)</strong>: BMR × 1.725</li>
+                            <li><strong>Super active (very hard exercise/sports & a physical job)</strong>: BMR × 1.9</li>
+                        </ul>
+                    </div>
+                    
+                    <p>Using these formulas and factors, TDEE calculators provide a customized estimate of my daily calorie needs, aiding in effective weight management.</p>
+ 
+                    <h2>Practical Guide to Using a TDEE Calculator</h2>
+                 
+                    <h3>Steps to Calculate Your TDEE</h3>
+                    <ol>
+        
+                        <li><strong>Gather Necessary Information</strong>
+                            <br>To start, collect essential personal details including your age, gender, weight, height, and activity level. These factors are crucial for accurate calculations.</li>
+                            <li><strong>Apply the Activity Multiplier</strong>
+                                <br>Multiply your BMR by the chosen activity multiplier to get your TDEE. This gives you the total number of calories you burn daily, factoring in all activities.</li>
+                        
+                        <li><strong>Calculate Your BMR</strong>
+                            <br>Input these details into a credible TDEE calculator that uses the Mifflin-St Jeor Equation or Harris-Benedict Equation. Both methods estimate your Basal Metabolic Rate (BMR). For instance, the Forbes Health TDEE Calculator uses these formulas
+                            for precise results.</li>
+                        
+                        
+                        <li><strong>Determine Your Activity Level</strong>
+                            <br>Select an activity multiplier reflecting your weekly exercise routine and general daily activities. Activity levels include:</li>
+                        
+                    </ol>
 
-    <p>Several factors influence TDEE, determining how much energy my body expends.</p>
+                    
+                    <div class="activity-levels">
+                        <ul>
+        <li>Sedentary: little to no exercise</li>
+        
+        
+        <li>Lightly Active: light exercise or sports 1-3 days/week</li>
+        
+        
+        <li>Moderately Active: moderate exercise or sports 3-5 days/week</li>
+        
+        
+        <li>Very Active: hard exercise or sports 6-7 days a week</li>
+        
+        
+        <li>Extra Active: very hard exercise or a physical job</li>
+        
+    </ul>
 
-    <ol>
-        
-        <li><strong>Basal Metabolic Rate (BMR)</strong>: This represents the energy I need at rest for essential bodily functions like breathing and maintaining body temperature.</li>
-        
-        
-        <li><strong>Physical Activity Level</strong>: Any activity, from daily chores to intense workouts, impacts my overall calorie expenditure.</li>
-        
-        
-        <li><strong>Thermic Effect of Food (TEF)</strong>: This is the energy used to digest, absorb, and metabolize the nutrients in what I eat.</li>
-        
-        
-        <li><strong>Age, Gender, and Body Composition</strong>: These intrinsic factors play a crucial role in my metabolism and energy needs.</li>
-        
-        
-        <li><strong>Health Conditions and Medications</strong>: Certain conditions and medications may alter my metabolism and thus my TDEE.</li>
-        
-    </ol>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+</div>
+ 
+
+
+<h3>Interpreting Your TDEE Results</h3>
+ 
+<p>Once you've calculated your TDEE, understanding the results is key to achieving your weight goals:</p>
+
+
+<ol>
+
+<ul>
+    
+    <li><strong>Maintenance</strong>
+        <br>If you eat at your TDEE, you'll maintain your current weight. This is because your caloric intake matches your total energy expenditure.</li>
+    
+    
+    <li><strong>Weight Loss</strong>
+        <br>To lose weight, consume fewer calories than your TDEE. Aiming for a 20-25% calorie deficit is recommended for sustainable weight loss. For example, if your TDEE is 2,000 calories, reducing your intake by 400-500 calories daily can achieve
+        a safe and effective weight loss rate of about 1-2 pounds per week.</li>
+    
+    
+    <li><strong>Weight Gain</strong>
+        <br>For weight gain, consume more calories than your TDEE. Adding a gradual surplus helps you gain weight healthily without excessive fat gain. For example, if your TDEE is 2,500 calories, consuming an additional 250-500 calories daily supports
+        gradual weight gain.</li>
+    
+</ul>
+
+</ol>
+
+<p>Using a TDEE calculator streamlines the process of setting and reaching fitness goals. With accurate inputs and mindful adjustments, managing weight becomes a more scientific and effective effort.</p>
+ 
+<h2>TDEE in Action: Real-World Applications</h2>
+<center>
+<div data-youtube-video="">
+    <iframe width="640" height="480" allowfullscreen="true" autoplay="false" disablekbcontrols="false" enableiframeapi="false" endtime="0" ivloadpolicy="0" loop="false" modestbranding="false" origin="" playlist="" src="https://www.youtube.com/embed/Wm51p_DhhAg"
+    start="0"></iframe>
+</div>
+</center>
+
+
+ 
+<h3>Using TDEE for Weight Management</h3>
+ 
+<p>TDEE is key for effective weight management. By knowing my TDEE, I can determine how many calories I need to consume daily to maintain, lose, or gain weight. For example, if my TDEE is 2,500 calories and I aim to lose weight, I'd plan a calorie intake
+    lower than my TDEE, typically by 500 calories, to promote a safe, sustainable weight loss of about one pound per week. This approach helps in customizing weight management plans based on individual caloric needs.</p>
+
+<h3>Role of TDEE in Dietary Planning</h3>
+
+<p>TDEE plays a crucial role in dietary planning. When structuring my diet, I ensure my calorie intake aligns with my goals. If my goal is to maintain weight, I consume calories equal to my TDEE. For weight loss, I maintain a calorie deficit. For weight
+    gain, I create a calorie surplus, eating more than my TDEE. Using TDEE allows me to tailor my diet effectively, ensuring I meet my nutritional and energy needs while working toward my fitness objectives.</p>
+
+<h2>Conclusion</h2>
+
+<p>Understanding your TDEE is a game-changer in managing your weight effectively. By accurately calculating your daily energy expenditure you can tailor your diet to meet your specific goals. Whether you're aiming to lose weight gain muscle or maintain
+    your current physique knowing your TDEE provides the foundation for informed decisions. With the right tools and knowledge you can create a personalized plan that aligns with your lifestyle and health objectives. So take the time to calculate
+    your TDEE and start your journey towards a healthier and more balanced life.</p>
+
+
+
+  
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3>What is TDEE?</h3>
+            <p>TDEE stands for Total Daily Energy Expenditure. It's the total amount of calories your body burns in a day, combining Basal Metabolic Rate (BMR), physical activity, and the thermic effect of food (TEF). Understanding TDEE helps manage weight by adjusting calorie intake according to personal goals.</p>
         </div>
-       
+        <div class="faq-item">
+            <h3>How can I calculate my TDEE?</h3>
+            <p>You can calculate TDEE by first determining your BMR using a formula like the Mifflin-St Jeor Equation. Then, multiply the BMR by an activity level multiplier that reflects your lifestyle. Online TDEE calculators can simplify this process.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Why is TDEE important for weight management?</h3>
+            <p>TDEE is crucial for weight management as it provides an accurate estimate of the calories you need daily. Depending on your goal (weight loss, maintenance, or gain), you can adjust your calorie intake based on your TDEE to achieve desired results effectively.</p>
+        </div>
+        <div class="faq-item">
+            <h3>What factors influence TDEE?</h3>
+            <p>TDEE consists of multiple factors: Basal Metabolic Rate (BMR), physical activity level, and the thermic effect of food (TEF). Personal details like age, gender, weight, height, and health conditions also play significant roles in determining TDEE.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How accurate are TDEE calculators?</h3>
+            <p>TDEE calculators provide a reliable estimate by considering various individual factors. While they’re generally accurate, the precision can vary depending on the specific formula used and the accuracy of the input data. The Mifflin-St Jeor Equation is often recommended for its accuracy.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Can I use TDEE to plan a weight loss diet?</h3>
+            <p>Yes, you can use TDEE to plan a weight loss diet. By consuming fewer calories than your TDEE, typically 20-25% less, you create a calorie deficit, which leads to weight loss. Adjusting intake based on TDEE helps customize and achieve weight goals effectively.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Should I eat exactly my TDEE to maintain weight?</h3>
+            <p>Yes, eating the number of calories equal to your TDEE helps maintain your current weight. TDEE represents the calorie amount required for your body to sustain its current functions and activity levels without gaining or losing weight.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How can TDEE help with weight gain?</h3>
+            <p>To gain weight, consume more calories than your TDEE. Generally, adding a moderate surplus of about 250-500 calories daily above your TDEE will result in gradual and healthy weight gain. Adjustments should be personalized to ensure balanced and sustainable growth.</p>
+        </div>
+        <div class="faq-item">
+            <h3>How often should I recalculate my TDEE?</h3>
+            <p>Recalculate your TDEE whenever significant changes occur in your weight, activity level, or lifestyle. Regular adjustments ensure your calorie intake remains aligned with your current energy expenditure, maintaining accuracy for effective weight management.</p>
+        </div>
+        <div class="faq-item">
+            <h3>Is TDEE useful for dietary planning?</h3>
+            <p>Absolutely, TDEE is essential for dietary planning. Aligning your calorie intake with your TDEE helps tailor diets to meet nutritional and energy needs. Whether aiming for weight maintenance, loss, or gain, knowing your TDEE allows for precise and effective dietary planning.</p>
+        </div>
+
+    
+
+
+
+
+</div>
+
+                
+          
+            
+
+
+    </div>
+
+
+
+
+        <!-- Additional Information -->
         <div style="text-align: center; margin-top: 20px;">
             <p>&copy; 2024 Comprehensive TDEE Calculator. All rights reserved.</p>
         </div>
@@ -258,5 +521,108 @@
             document.getElementById('fbm-result').textContent = `${fbm.toFixed(2)} kg`;
         }
     </script>
+
+
+<script>
+    document.querySelectorAll('.faq-item h3').forEach(item => {
+        item.addEventListener('click', function() {
+            const p = this.nextElementSibling;
+            p.style.display = p.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+</script>
+
+
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TDEE stands for Total Daily Energy Expenditure. It's the total amount of calories your body burns in a day, combining Basal Metabolic Rate (BMR), physical activity, and the thermic effect of food (TEF). Understanding TDEE helps manage weight by adjusting calorie intake according to personal goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I calculate my TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can calculate TDEE by first determining your BMR using a formula like the Mifflin-St Jeor Equation. Then, multiply the BMR by an activity level multiplier that reflects your lifestyle. Online TDEE calculators can simplify this process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is TDEE important for weight management?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TDEE is crucial for weight management as it provides an accurate estimate of the calories you need daily. Depending on your goal (weight loss, maintenance, or gain), you can adjust your calorie intake based on your TDEE to achieve desired results effectively."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What factors influence TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TDEE consists of multiple factors: Basal Metabolic Rate (BMR), physical activity level, and the thermic effect of food (TEF). Personal details like age, gender, weight, height, and health conditions also play significant roles in determining TDEE."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are TDEE calculators?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TDEE calculators provide a reliable estimate by considering various individual factors. While they’re generally accurate, the precision can vary depending on the specific formula used and the accuracy of the input data. The Mifflin-St Jeor Equation is often recommended for its accuracy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use TDEE to plan a weight loss diet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use TDEE to plan a weight loss diet. By consuming fewer calories than your TDEE, typically 20-25% less, you create a calorie deficit, which leads to weight loss. Adjusting intake based on TDEE helps customize and achieve weight goals effectively."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I eat exactly my TDEE to maintain weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, eating the number of calories equal to your TDEE helps maintain your current weight. TDEE represents the calorie amount required for your body to sustain its current functions and activity levels without gaining or losing weight."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can TDEE help with weight gain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To gain weight, consume more calories than your TDEE. Generally, adding a moderate surplus of about 250-500 calories daily above your TDEE will result in gradual and healthy weight gain. Adjustments should be personalized to ensure balanced and sustainable growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I recalculate my TDEE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Recalculate your TDEE whenever significant changes occur in your weight, activity level, or lifestyle. Regular adjustments ensure your calorie intake remains aligned with your current energy expenditure, maintaining accuracy for effective weight management."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is TDEE useful for dietary planning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely, TDEE is essential for dietary planning. Aligning your calorie intake with your TDEE helps tailor diets to meet nutritional and energy needs. Whether aiming for weight maintenance, loss, or gain, knowing your TDEE allows for precise and effective dietary planning."
+          }
+        }
+      ]
+    }
+    </script>
+    
+
 </body>
 </html>
